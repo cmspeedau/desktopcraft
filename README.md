@@ -1,87 +1,97 @@
 # DesktopCraft
 
-**A customizable desktop organizer for Windows.**
+**Make your Windows desktop a workspace that works for you.**
 
-[![Release](https://img.shields.io/github/v/release/tanyapruck/DesktopCraft?label=release)](https://github.com/tanyapruck/DesktopCraft/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/tanyapruck/DesktopCraft?label=release)](https://github.com/tanyapruck/DesktopCraft/releases/latest)
 [![Windows x64](https://img.shields.io/badge/platform-Windows%20x64-0078D4)](https://github.com/tanyapruck/DesktopCraft/releases/latest)
-[![Windows installer](https://github.com/tanyapruck/DesktopCraft/actions/workflows/windows-installer.yml/badge.svg)](https://github.com/tanyapruck/DesktopCraft/actions/workflows/windows-installer.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Free to use](https://img.shields.io/badge/price-Free-2ea44f)](https://github.com/tanyapruck/DesktopCraft/releases/latest)
 
-DesktopCraft keeps your Windows desktop organized with movable boxes, tabs, and pages. Group your shortcuts and files, customize how items appear, and switch between workspaces without turning every group into a physical folder.
+DesktopCraft is a free Windows desktop organization and productivity app designed to transform cluttered desktops into clean, customizable workspaces. Organize files, folders, and shortcuts into Boxes, switch between Tabs and Pages, and keep the familiar Windows desktop experience.
 
-**Current release: v0.1.0**
+## Download
 
-[**Download DesktopCraft v0.1.0 for Windows (x64)**](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.1.0/DesktopCraft-v0.1.0-Setup-x64.exe) · [All releases](https://github.com/tanyapruck/DesktopCraft/releases)
+**Latest public release: v0.3.0**
+
+[**Download DesktopCraft for Windows (x64)**](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/DesktopCraft-v0.3.0-Setup-x64.exe)
+
+[Release notes](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.3.0) · [All releases](https://github.com/tanyapruck/DesktopCraft/releases) · [SHA-256 checksums](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/SHA256SUMS.txt)
 
 ## Features
 
-- **Desktop boxes** — Create, move, resize, and customize groups directly on your desktop.
-- **Pages and tabs** — Keep separate layouts for different activities and switch between them from the page selector.
-- **Virtual organization** — Pin files and shortcuts into boxes without moving the original files on disk.
-- **Linked folder views** — Show the contents of a real folder inside a box, with filtering and sorting.
-- **Drag and drop** — Organize items across boxes, desktop areas, and linked folders.
-- **Personalization** — Adjust icon sizes, box appearance, roll-up behavior, Peek shortcuts, and sorting rules.
-- **Windows integration** — Open files, rename items, view Properties, and use Windows Shell file operations.
-- **Update notifications** — Check GitHub Releases for new versions and choose when to install an update.
+| Feature | What you can do |
+| --- | --- |
+| Desktop Boxes | Create, move, resize and customize containers for desktop icons. |
+| Tabs | Keep related items together in one Box and switch between categories. |
+| Pages | Create separate desktop layouts for work, personal use or different projects. |
+| Native Windows integration | Use Windows context menus, Rename (F2), Properties (Alt+Enter) and familiar Shell actions. |
+| Drag and drop | Move and select items using familiar desktop interactions, including between Boxes and Tabs. |
+| Linked folders | Display the contents of real Windows folders within a Box. |
+| Sorting rules | Organize items by configurable rules and apply sorting when needed. |
+| Docking and roll-up | Attach Boxes to screen edges or collapse them to save desktop space. |
+| Quick Hide | Double-click an empty desktop area to hide or show your workspace. |
+| Appearance | Customize Box colors, transparency, icon sizes and layout. |
+| Multi-monitor support | Arrange Boxes across displays and select the display for the Page Switcher. |
+| Workspace persistence | Save desktop arrangements, rules and preferences between sessions. |
+
+## What's new in v0.3.0
+
+- Refactored desktop integration using native Windows Explorer icons and context menus.
+- Improved drag and drop and everyday desktop interactions.
+- Improved responsiveness and crash recovery.
+- Improved Page Switcher display handling and multi-monitor behavior.
+
+See the [v0.3.0 release notes](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.3.0) for the published release details.
 
 ## Getting started
 
-1. Download **DesktopCraft-v0.1.0-Setup-x64.exe** from the [latest release](https://github.com/tanyapruck/DesktopCraft/releases/latest).
-2. Run the installer. DesktopCraft installs for your Windows account without requiring administrator privileges.
-3. Create boxes and organize desktop items into the groups and pages you prefer.
-4. Use each box's menu and **Settings** to customize layouts, tabs, linked folders, and shortcuts.
+DesktopCraft is distributed as a Windows x64 installer and installs for your Windows account without requiring administrator privileges.
 
-DesktopCraft saves your workspace settings so your arrangement is available when you open it again.
+1. Download the setup executable from the official [GitHub Releases](https://github.com/tanyapruck/DesktopCraft/releases/latest) page.
+2. Run the installer and choose your preferred startup settings.
+3. Create Boxes, organize your desktop icons, and add Tabs or Pages as needed.
+4. Open Settings to customize appearance, behavior, display selection and shortcuts.
 
-> **Windows SmartScreen:** The installer is currently unsigned, so Windows may display a publisher or reputation warning. Always download it from this repository's official GitHub Releases page.
+> **Security notice:** The current installer is unsigned. Windows SmartScreen may display a publisher or reputation warning. Download only from this repository, verify the published SHA-256 checksum, and keep your security software enabled.
 
-## How DesktopCraft handles files
-
-DesktopCraft supports two distinct kinds of boxes:
-
-| Box type | What it does | Effect on files |
-| --- | --- | --- |
-| **Regular box** | Organizes files and shortcuts as virtual pins | Keeps the original files in their existing locations |
-| **Linked folder view** | Displays the contents of a selected Windows folder | Dragging files into or out of the folder can **move the actual files** |
-
-Moving an item between regular boxes changes its organization, not the file's location. A linked folder view performs real filesystem operations, so take care when dragging items into it.
-
-Deleting an item through Windows' Recycle Bin is also a real filesystem action; it is not the same as removing a virtual pin.
-
-## Windows desktop integration
-
-DesktopCraft provides a Windows 11-style file-actions menu for items it manages, with common actions such as Open, Copy, Rename, Delete, and Properties. **Show more options** opens the native classic Windows Shell menu.
-
-The DesktopCraft-drawn file menu is not the exact Explorer-owned Windows 11 modern context menu. Desktop icons outside DesktopCraft's managed regions continue to use Windows' own context menu.
-
-## Updates
-
-Installed copies of DesktopCraft check the [latest GitHub Release](https://github.com/tanyapruck/DesktopCraft/releases/latest) for a newer version.
-
-If an update is available, DesktopCraft asks before downloading anything. After you approve it, the updater downloads the installer, verifies its size and published SHA-256 checksum, and starts the in-place update process. Your boxes, pages, rules, and settings are preserved by the existing installer.
-
-Updates are **not installed automatically**. To disable update checks, set the `DESKTOPCRAFT_DISABLE_UPDATE_CHECK` environment variable.
-
-## Build from source
-
-**Requirements:** Windows x64 and the stable Rust toolchain.
+To verify the installer in PowerShell:
 
 ```powershell
-cargo test --locked --release
-cargo build --locked --release
-./scripts/package-release.ps1
+Get-FileHash .\DesktopCraft-v0.3.0-Setup-x64.exe -Algorithm SHA256
 ```
 
-The packaging script creates the Windows setup executable and `SHA256SUMS.txt` in `dist/`.
+Compare the output with the published [SHA256SUMS.txt](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/SHA256SUMS.txt).
 
-GitHub Actions also builds and tests the Windows installer. Release tags matching the version in `Cargo.toml` publish the generated installer to [GitHub Releases](https://github.com/tanyapruck/DesktopCraft/releases).
+## How files are handled
 
-For the packaging and updater implementation, see [Release build documentation](RELEASE_BUILD.md).
+| Box type | File behavior |
+| --- | --- |
+| Regular Box | Organizes desktop items without requiring a separate physical folder for each Box. |
+| Linked folder | Displays a real folder; dragging items into or out of it may move actual files. |
 
-## License and acknowledgements
+Windows file operations such as Rename and Delete affect real files. Removing an item from an organizational group is not the same as deleting it from disk. Keep backups of important files and workspace settings before changing installations.
 
-DesktopCraft source is provided under the [MIT License](LICENSE). Third-party components, including locally adapted Macroquad and Miniquad code, retain their respective licenses and notices; see [NOTICE.md](NOTICE.md).
+## Updates and development
+
+DesktopCraft can check GitHub Releases for newer versions. Updates are user-approved, rather than silently installed.
+
+**Coming next — v0.3.1 (in development):** further responsiveness improvements, refinements to native desktop interactions, multi-monitor handling and installer reliability. This version is still undergoing verification and is not yet available for download.
+
+### Future direction
+
+DesktopCraft aims to grow into a modular desktop productivity suite, with desktop organization as its foundation. Planned ideas include screenshot and capture tools, desktop widgets and productivity dashboards, alongside other useful everyday desktop utilities.
+
+Future modules are not part of the current installer.
+
+## Feedback and support
+
+Found a bug or have a feature suggestion? [Open an issue](https://github.com/tanyapruck/DesktopCraft/issues). For bug reports, include your DesktopCraft version, Windows version, reproduction steps and expected behavior. Remove personal information from any logs or screenshots before sharing.
+
+## Distribution and third-party notices
+
+This repository is the official public download and feedback page. Third-party components retain their applicable licenses and notices; see the [third-party notices for v0.3.0](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/THIRD-PARTY-NOTICES.md).
 
 ---
 
-**DesktopCraft v0.1.0** · [Download](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.1.0) · [Report an issue](https://github.com/tanyapruck/DesktopCraft/issues)
+**Organize your desktop. Make room for your work.**
+
+[Download DesktopCraft](https://github.com/tanyapruck/DesktopCraft/releases/latest) · [Report an issue](https://github.com/tanyapruck/DesktopCraft/issues)
