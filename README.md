@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/DesktopCraft-v0.3.0-Setup-x64.exe"><strong>Download DesktopCraft</strong></a> ·
+  <a href="https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/DesktopCraft-v0.3.1-Setup-x64.exe"><strong>Download DesktopCraft</strong></a> ·
   <a href="https://github.com/tanyapruck/DesktopCraft/releases">GitHub releases</a> ·
   <a href="https://github.com/tanyapruck/DesktopCraft/issues">Feedback</a>
 </p>
@@ -47,7 +47,7 @@ Keep the things you need within reach, without filling your desktop with folders
 
 DesktopCraft is designed to be more than a graphical desktop organizer. Its local AI integration lets compatible AI agents inspect and organize a workspace using structured tools, while keeping the user in control.
 
-The integration is implemented in the current development source. Tool availability can vary by installed version; the exact public v0.3.0 binary's AI tool catalog has not been independently verified.
+DesktopCraft v0.3.1 includes 28 local AI tools, available through MCP and JSON CLI. Workspace mutations use Native Transactions with Explorer acknowledgement, explicit user approval and verified persistence.
 
 | Tool category | Capabilities |
 | --- | --- |
@@ -61,7 +61,7 @@ The integration is implemented in the current development source. Tool availabil
 
 The local integration exposes a structured JSON CLI and a Model Context Protocol (MCP) stdio server. Compatible MCP clients can launch the installed DesktopCraft executable with the `--mcp` argument while the desktop app is running.
 
-For builds that include the integration, discover the tools and inspect workspace status from PowerShell:
+Discover the tools and inspect workspace status from PowerShell:
 
 ```powershell
 $desktopcraft = "$env:LOCALAPPDATA\Programs\DesktopCraft\DesktopCraft.exe"
@@ -88,24 +88,24 @@ Future modules are not included in the current installer.
 
 ## Download & install
 
-**Latest public release: v0.3.0** · Windows x64
+**Latest public release: v0.3.1** · Windows x64
 
-[**Download DesktopCraft v0.3.0**](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/DesktopCraft-v0.3.0-Setup-x64.exe) · [Release notes](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.3.0) · [SHA-256 checksums](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/SHA256SUMS.txt)
+[**Download DesktopCraft v0.3.1**](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/DesktopCraft-v0.3.1-Setup-x64.exe) · [Release notes](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.3.1) · [SHA-256 checksums](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/SHA256SUMS.txt)
 
 Install for your Windows account without administrator privileges. Choose your startup preferences and start organizing your workspace.
 
 > The installer is currently unsigned, so Windows SmartScreen may display a publisher or reputation warning. Download from the official releases page, verify the published checksum, and keep security software enabled.
 
-DesktopCraft checks for updates and asks before installing a new version. The upcoming v0.3.1 is still being verified and is not available for download.
+DesktopCraft checks for updates and asks before installing a new version. Version 0.3.1 improves native AI tool compatibility, preserves existing workspaces when reinstalling, and improves uninstaller cleanup reliability. See the [release notes](https://github.com/tanyapruck/DesktopCraft/releases/tag/v0.3.1) for details.
 
 <details>
 <summary><strong>Verify the download and understand file operations</strong></summary>
 
 ```powershell
-Get-FileHash .\DesktopCraft-v0.3.0-Setup-x64.exe -Algorithm SHA256
+Get-FileHash .\DesktopCraft-v0.3.1-Setup-x64.exe -Algorithm SHA256
 ```
 
-Compare the hash with the published [SHA256SUMS.txt](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/SHA256SUMS.txt).
+Compare the hash with the published [SHA256SUMS.txt](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/SHA256SUMS.txt).
 
 Regular Boxes organize desktop items without needing a physical folder for every Box. Portals display real folders; moving items into or out of them may move actual files. Windows Rename and Delete are real filesystem actions. Keep backups of important files and workspace settings.
 
@@ -117,6 +117,6 @@ Found a bug, have an idea, or want to suggest the next productivity tool? [Open 
 
 When reporting a bug, include your DesktopCraft version, Windows version, reproduction steps and expected behavior. Remove personal information from screenshots and logs before sharing.
 
-This is the official public download and feedback repository. Third-party components retain their applicable licenses and notices; see the [release notices](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.0/THIRD-PARTY-NOTICES.md).
+This is the official public download and feedback repository. Third-party components retain their applicable licenses and notices; see the [release notices](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/THIRD-PARTY-NOTICES.md).
 
 <p align="center"><strong>Less clutter. More room to work.</strong></p>
