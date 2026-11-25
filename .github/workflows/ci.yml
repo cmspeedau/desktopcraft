@@ -1,0 +1,38 @@
+name: Windows CI
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+      - name: Build and verify native candidate
+        shell: pwsh
+        run: |
+          $manifest = ./tools/build-native-candidate.ps1
+          $build = Get-Content -LiteralPath $manifest -Raw | ConvertFrom-Json
+          "DESKTOPCRAFT_NATIVE_FILTER_DLL=$($build.artifact.native_dll)" >> $env:GITHUB_ENV
+          $destination = Join-Path $env:RUNNER_TEMP 'desktopcraft-ci-package'
+          ./scripts/package-release.ps1 -Executable $build.artifact.executable -NativeDll $build.artifact.native_dll -ExpectedSha256 $build.artifact.executable_sha256 -Destination $destination
+          if (!(Test-Path (Join-Path $destination 'LICENSE'))) { throw 'Missing project license' }
+          if (!(Test-Path (Join-Path $destination 'third-party-licenses'))) { throw 'Missing third-party licenses' }
+          $probe = Start-Process -FilePath $build.artifact.executable -ArgumentList '--native-filter-hook-observe','3' -Wait -PassThru
+          if ($probe.ExitCode -ne 2) { throw 'Developer probe was not rejected' }
+      - name: Tests
+        shell: pwsh
+        run: |
+          $env:DESKTOPCRAFT_DATA = Join-Path $env:RUNNER_TEMP 'dc-test-data'
+          cargo test --locked
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --features native-fast-tabs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --manifest-path native-filter/Cargo.toml
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cargo test --locked --manifest-path native-filter/Cargo.toml --features native-fast-tabs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }

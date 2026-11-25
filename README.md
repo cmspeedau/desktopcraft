@@ -111,12 +111,28 @@ Regular Boxes organize desktop items without needing a physical folder for every
 
 </details>
 
+## Build from source
+
+The sanitized v0.3.1 source snapshot is available at [v0.3.1-source](https://github.com/tanyapruck/DesktopCraft/tree/v0.3.1-source). The existing v0.3.1 installer release remains unchanged.
+
+Requirements: Windows x64, stable Rust with the x86_64-pc-windows-msvc target, Visual Studio C++ Build Tools and Windows SDK. From a clean Git checkout in PowerShell:
+
+```powershell
+$manifest = ./tools/build-native-candidate.ps1
+$build = Get-Content -LiteralPath $manifest -Raw | ConvertFrom-Json
+$env:DESKTOPCRAFT_NATIVE_FILTER_DLL = $build.artifact.native_dll
+cargo test --locked --features native-fast-tabs
+cargo test --locked --manifest-path native-filter/Cargo.toml --features native-fast-tabs
+```
+
+The build script compiles and verifies the matching native DLL and executable. Close any running DesktopCraft instance normally before launching a local build. Do not load the raw DLL directly into Explorer. Source builds are not claimed to be byte-identical to the published installer.
+
 ## Help shape DesktopCraft
 
 Found a bug, have an idea, or want to suggest the next productivity tool? [Open an issue](https://github.com/tanyapruck/DesktopCraft/issues).
 
 When reporting a bug, include your DesktopCraft version, Windows version, reproduction steps and expected behavior. Remove personal information from screenshots and logs before sharing.
 
-This is the official public download and feedback repository. Third-party components retain their applicable licenses and notices; see the [release notices](https://github.com/tanyapruck/DesktopCraft/releases/download/v0.3.1/THIRD-PARTY-NOTICES.md).
+This repository contains the public source snapshot, official downloads and feedback. The project source is distributed under the [MIT License](LICENSE); artwork and third-party components retain their separate terms. See [NOTICE.md](NOTICE.md), [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) and [assets/README.md](assets/README.md).
 
 <p align="center"><strong>Less clutter. More room to work.</strong></p>

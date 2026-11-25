@@ -1,0 +1,21 @@
+[package]
+name = "desktopcraft-native-filter"
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+name = "desktopcraft_native_filter"
+crate-type = ["cdylib"]
+
+[features]
+native-fast-tabs = []
+
+[dependencies]
+winapi = { version = "0.3", features = ["winuser", "libloaderapi", "processthreadsapi"] }
+
+[profile.release]
+panic = "abort"
+opt-level = "s"
+lto = "thin"
